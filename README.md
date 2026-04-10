@@ -15,7 +15,7 @@
 ```bash
 # 1. Clonar o repositório
 git clone https://github.com/MoisesHsilva1/snakeEyes-theme.git
-cd snakeEyes
+cd snakeEyes-theme
 ```
 ```bash
 # 2. Rodar o setup
