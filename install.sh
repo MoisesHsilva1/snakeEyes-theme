@@ -1,21 +1,26 @@
 #!/bin/bash
 
-GREEN='\033[0;32m'
-NC='\033[0m'
-
-echo -e "${GREEN}Iniciando a reconstrução do ambiente snakeEyes...${NC}"
-
-sudo pacman -Syu --noconfirm
-
-sudo pacman -S --needed - < pkg/pacman-list.txt
+sudo pacman -Syu --needed --noconfirm - < pkg/pacman-list.txt
 
 if ! command -v yay &> /dev/null; then
     git clone https://aur.archlinux.org/yay.git /tmp/yay
     cd /tmp/yay && makepkg -si --noconfirm && cd -
 fi
 
-yay -S --needed - < pkg/aur-list.txt
+yay -S --needed --noconfirm - < pkg/aur-list.txt
 
-echo "Restaurando configurações..."
+mkdir -p ~/.themes ~/.icons ~/.local/share/fonts
 
-echo -e "${GREEN}Sistema restaurado com sucesso!${NC}"
+cp -r themes/.themes/* ~/.themes/ 2>/dev/null
+cp -r themes/.icons/* ~/.icons/ 2>/dev/null
+cp -r themes/fonts/* ~/.local/share/fonts/ 2>/dev/null
+fc-cache -fv
+
+apply_dotfile() {
+    rm -rf "$2"
+    ln -sf "$1" "$2"
+}
+
+apply_dotfile ~/snakeEyes/dotfiles/kitty ~/.config/kitty
+apply_dotfile ~/snakeEyes/dotfiles/nvim ~/.config/nvim
+apply_dotfile ~/snakeEyes/dotfiles/.zshrc ~/.zshrc
