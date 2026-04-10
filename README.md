@@ -14,7 +14,7 @@
 
 ```bash
 # 1. Clonar o repositório
-git clone [https://github.com/SEU_USUARIO/snakeEyes.git](https://github.com/SEU_USUARIO/snakeEyes.git)
+git clone https://github.com/MoisesHsilva1/snakeEyes-theme.git
 cd snakeEyes
 ```
 ```bash
