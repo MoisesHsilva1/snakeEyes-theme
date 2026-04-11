@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/OS-CachyOS%20(Arch)-blue?style=for-the-badge&logo=arch-linux" alt="OS">
+  <img src="https://img.shields.io/badge/KDE%20-blue?style=for-the-badge&logo=linux" alt="OS">
   <img src="https://img.shields.io/badge/Shell-ZSH-orange?style=for-the-badge&logo=gnubash" alt="Shell">
 </p>
 
